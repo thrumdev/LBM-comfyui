@@ -1,0 +1,222 @@
+{
+  "id": "62e4450d-9685-4152-a21d-ab51a6cfc976",
+  "revision": 0,
+  "last_node_id": 14,
+  "last_link_id": 22,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LBMLoader",
+      "pos": [
+        -672.8946533203125,
+        -679.0781860351562
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "thrumdev/lbm-comfyui",
+        "ver": "1eac16fa7b88c2711605ca49bedac4985e399114",
+        "Node name for S&R": "LBMLoader"
+      },
+      "widgets_values": [
+        "lbm-relight.safetensors",
+        "lbm_relight"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        -672.509765625,
+        -544.6031494140625
+      ],
+      "size": [
+        318.5,
+        381.6300048828125
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pasted/image.png",
+        "image",
+        ""
+      ]
+    },
+    {
+      "id": 9,
+      "type": "PreviewImage",
+      "pos": [
+        -294.65447998046875,
+        -539.9337158203125
+      ],
+      "size": [
+        926.8161010742188,
+        688.5833129882812
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LBMRelight",
+      "pos": [
+        -329.47467041015625,
+        -674.7877807617188
+      ],
+      "size": [
+        315,
+        78
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_image",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "thrumdev/lbm-comfyui",
+        "ver": "1eac16fa7b88c2711605ca49bedac4985e399114",
+        "Node name for S&R": "LBMRelight"
+      },
+      "widgets_values": [
+        24
+      ]
+    },
+    {
+      "id": 14,
+      "type": "Note",
+      "pos": [
+        2.867368698120117,
+        -774.9760131835938
+      ],
+      "size": [
+        231.9600067138672,
+        183.4199981689453
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "num_steps=1 gives surprisingly good results, but it gets substantially better with 4 or 8, with diminishing returns after that."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "MODEL"
+    ],
+    [
+      4,
+      2,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      5,
+      0,
+      2,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7513148009015783,
+      "offset": [
+        846.6708981497512,
+        1166.8664187130298
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
