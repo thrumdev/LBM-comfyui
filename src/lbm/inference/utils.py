@@ -61,7 +61,7 @@ def get_model(
     with open(os.path.join(model_dir, yaml_file[0]), "r") as f:
         config = yaml.safe_load(f)
 
-    model = _get_model_from_config(**config, torch_dtype=torch_dtype)
+    model = get_model_from_config(**config, torch_dtype=torch_dtype)
 
     if len(safetensors_files) > 0:
         logging.info(f"Loading safetensors file: {safetensors_files[-1]}")
@@ -85,7 +85,7 @@ def get_model(
     return model
 
 
-def _get_model_from_config(
+def get_model_from_config(
     backbone_signature: str = "stabilityai/stable-diffusion-xl-base-1.0",
     vae_num_channels: int = 4,
     unet_input_channels: int = 4,
