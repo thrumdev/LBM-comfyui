@@ -9,7 +9,7 @@ authors = [
 maintainers = [
     { name = "Robert Habermeier", email = "rphmeier@gmail.com"},
 ]
-version = "0.1"
+version = "0.1.1"
 license = { file = "LICENSE.txt" }
 
 [tool.setuptools.dynamic]
