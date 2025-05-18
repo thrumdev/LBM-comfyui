@@ -4,7 +4,7 @@ import PIL
 import torch
 from torchvision.transforms import ToPILImage, ToTensor
 
-from lbm.models.lbm import LBMModel
+from ..models.lbm import LBMModel
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

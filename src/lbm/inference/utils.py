@@ -8,15 +8,14 @@ from diffusers import FlowMatchEulerDiscreteScheduler
 from huggingface_hub import snapshot_download
 from safetensors.torch import load_file
 
-from lbm.models.embedders import (
+from ..models.embedders import (
     ConditionerWrapper,
     LatentsConcatEmbedder,
     LatentsConcatEmbedderConfig,
 )
-from lbm.models.lbm import LBMConfig, LBMModel
-from lbm.models.unets import DiffusersUNet2DCondWrapper
-from lbm.models.vae import AutoencoderKLDiffusers, AutoencoderKLDiffusersConfig
-
+from ..models.lbm import LBMConfig, LBMModel
+from ..models.unets import DiffusersUNet2DCondWrapper
+from ..models.vae import AutoencoderKLDiffusers, AutoencoderKLDiffusersConfig
 
 def get_model(
     model_dir: str,

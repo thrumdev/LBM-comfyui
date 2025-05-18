@@ -3,8 +3,6 @@ from typing import Any, Dict
 import torch
 import torchvision.transforms.functional as F
 
-from lbm.models.vae import AutoencoderKLDiffusers
-
 from ..base import BaseConditioner
 from .latents_concat_embedder_config import LatentsConcatEmbedderConfig
 
@@ -22,7 +20,7 @@ class LatentsConcatEmbedder(BaseConditioner):
         BaseConditioner.__init__(self, config)
 
     def forward(
-        self, batch: Dict[str, Any], vae: AutoencoderKLDiffusers, *args, **kwargs
+        self, batch: Dict[str, Any], vae, *args, **kwargs
     ) -> dict:
         """
         Args:
@@ -30,7 +28,7 @@ class LatentsConcatEmbedder(BaseConditioner):
             the images must range between [-1, 1] and the masks range between [0, 1].
             vae (AutoencoderKLDiffusers): VAE
 
-        Returns:
+        Returns:mv
             output (dict): outputs
         """
 
