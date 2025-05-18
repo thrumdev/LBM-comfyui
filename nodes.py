@@ -116,7 +116,7 @@ def evaluate(model, image_batch: torch.Tensor, num_sampling_steps=1):
         output_images.append(output_image)
 
     # Stack outputs into a batch
-    return torch.stack(output_images)
+    return torch.stack(output_images).to(torch.float32).cpu()
 
 NODE_CLASS_MAPPINGS = {
     "LBMLoader": LBMLoader,
