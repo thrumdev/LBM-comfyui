@@ -1,39 +1,25 @@
-[build-system]
-requires = ["hatchling", "hatch-requirements-txt"]
-build-backend = "hatchling.build"
-
 [project]
 name = "lbm"
-dynamic = ["dependencies", "optional-dependencies"]
-description = "LBM: Latent Bridge Matching for Fast Image-to-Image Translation"
+description = "Nodes for Jasper's LBM models"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
-    { name = "Clement Chadebec", email = "clement.chadebec@jasper.ai" },
-    { name = "Benjamin Aubin", email = "benjamin.aubin@jasper.ai" },
+    { name = "Robert Habermeier", email = "rphmeier@gmail.com"},
 ]
 maintainers = [
-    { name = "Clement Chadebec", email = "clement.chadebec@jasper.ai" },
-]
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "License :: OSI Approved :: Apache Software License",
-    "Operating System :: OS Independent",
+    { name = "Robert Habermeier", email = "rphmeier@gmail.com"},
 ]
 version = "0.1"
+license = { file = "LICENSE.txt" }
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
 
 [project.urls]
-Homepage = "https://github.com/gojasper/LBM"
-Repository = "https://github.com/gojasper/LBM"
+Homepage = "https://github.com/thrumdev/lbm-comfyui"
+Repository = "https://github.com/thrumdev/lbm-comfyui"
 
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.metadata.hooks.requirements_txt]
-files = ["requirements.txt"]
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/lbm"]
+[tool.comfy]
+PublisherId = "thrumdev"
+DisplayName = "LBM Latent Bridge Matching"
+Description = "ComfyUI support for Jasper's LBM models, including relighting"
